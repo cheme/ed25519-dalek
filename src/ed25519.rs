@@ -12,7 +12,7 @@
 
 use core::fmt::{Debug};
 
-#[cfg(feature = "std")]
+#[cfg(feature = "rgen")]
 use rand::Rng;
 
 #[cfg(feature = "serde")]
@@ -309,7 +309,7 @@ impl SecretKey {
     /// A CSPRNG with a `fill_bytes()` method, e.g. the one returned
     /// from `rand::OsRng::new()` (in the `rand` crate).
     ///
-    #[cfg(feature = "std")]
+    #[cfg(feature = "rgen")]
     pub fn generate(csprng: &mut Rng) -> SecretKey {
         let mut sk: SecretKey = SecretKey([0u8; 32]);
 
@@ -871,7 +871,7 @@ impl Keypair {
     /// The standard hash function used for most ed25519 libraries is SHA-512,
     /// which is available with `use sha2::Sha512` as in the example above.
     /// Other suitable hash functions include Keccak-512 and Blake2b-512.
-    #[cfg(feature = "std")]
+    #[cfg(feature = "rgen")]
     pub fn generate<D>(csprng: &mut Rng) -> Keypair
             where D: Digest<OutputSize = U64> + Default {
         let sk: SecretKey = SecretKey::generate(csprng);

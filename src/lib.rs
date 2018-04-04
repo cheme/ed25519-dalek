@@ -263,7 +263,7 @@ extern crate digest;
 extern crate subtle;
 extern crate failure;
 
-#[cfg(feature = "std")]
+#[cfg(feature = "rgen")]
 extern crate rand;
 
 #[cfg(any(feature = "std", test))]

@@ -53,7 +53,8 @@ bincode = "^0.9"
 
 [features]
 default = ["std"]
-std = ["rand", "subtle/std", "curve25519-dalek/std", "failure/std"]
+std = ["rgen", "subtle/std", "curve25519-dalek/std", "failure/std"]
+rgen = ["rand"]
 bench = []
 nightly = ["curve25519-dalek/nightly", "subtle/nightly"]
 asm = ["sha2/asm"]
